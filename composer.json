@@ -1,17 +1,16 @@
 {
-    "name": "",
+    "name": "keeloren/file-management",
     "description": "A Package for file management",
     "keywords": [
-        "kun391",
-        "users"
+        "keeloren",
+        "file-management"
     ],
-    "homepage": "https://github.com/kun391/users",
+    "homepage": "https://github.com/keeloren/file-management",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Kun",
-            "email": "nguyentruongthanh.dn@gmail.com",
+            "name": "keeloren",
             "role": "Developer"
         }
     ],
@@ -20,17 +19,16 @@
         "illuminate/support": "^6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Kun391\\Users\\": "src"
+            "GGPHP\\FileManagement\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kun391\\Users\\Tests\\": "tests"
+            "GGPHP\\FileManagement\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -44,11 +42,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Kun391\\Users\\UsersServiceProvider"
-            ],
-            "aliases": {
-                "Users": "Kun391\\Users\\UsersFacade"
-            }
+                "GGPHP\\FileManagement\\UsersServiceProvider"
+            ]
         }
     }
 }
