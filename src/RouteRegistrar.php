@@ -1,6 +1,6 @@
 <?php
 
-namespace GGPHP\FileManagement;
+namespace GGPHP\FileMedia;
 
 use GGPHP\Core\RouteRegistrar as CoreRegistrar;
 
@@ -9,7 +9,7 @@ class RouteRegistrar extends CoreRegistrar
     /**
      * The namespace implementation.
      */
-    protected static $namespace = '\GGPHP\FileManagement\Http\Controllers';
+    protected static $namespace = '\GGPHP\FileMedia\Http\Controllers';
 
     /**
      * Register routes for bread.
@@ -32,7 +32,7 @@ class RouteRegistrar extends CoreRegistrar
 
             \Route::group(['prefix' => 'file'], function () {
                 \Route::post('upload', [
-                    'uses' => 'FileManagementController@upload',
+                    'uses' => 'FileMediaController@upload',
                     'as' => 'file.upload',
                 ]);
             });

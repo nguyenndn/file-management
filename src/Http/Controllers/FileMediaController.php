@@ -1,25 +1,25 @@
 <?php
 
-namespace GGPHP\FileManagement\Http\Controllers;
+namespace GGPHP\FileMedia\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use GGPHP\FileManagement\Repositories\Contracts\FileManagementRepository;
+use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use Illuminate\Http\Request;
 
-class FileManagementController extends Controller
+class FileMediaController extends Controller
 {
     /**
-     * @var $userRepository
+     * @var $fileMediaRepository
      */
-    protected $fileManagementRepository;
+    protected $fileMediaRepository;
 
     /**
      * UserController constructor.
-     * @param FileManagementRepository $fileManagementRepository
+     * @param FileMediaRepository $fileMediaRepository
      */
-    public function __construct(FileManagementRepository $fileManagementRepository)
+    public function __construct(FileMediaRepository $fileMediaRepository)
     {
-        $this->fileManagementRepository = $fileManagementRepository;
+        $this->fileMediaRepository = $fileMediaRepository;
     }
 
     /**

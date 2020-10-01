@@ -1,8 +1,7 @@
 <?php
 
-namespace GGPHP\FileManagement\Transformers;
+namespace GGPHP\FileMedia\Transformers;
 
-use GGPHP\Absent\Models\FileManagement;
 use GGPHP\Core\Traits\ApprovalTransformerTrait;
 use GGPHP\Core\Transformers\BaseTransformer;
 
@@ -11,7 +10,7 @@ use GGPHP\Core\Transformers\BaseTransformer;
  *
  * @package namespace App\Transformers;
  */
-class FileManagementTransformer extends BaseTransformer
+class FileMediaTransformer extends BaseTransformer
 {
     use ApprovalTransformerTrait;
 

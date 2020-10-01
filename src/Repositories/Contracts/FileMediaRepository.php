@@ -1,6 +1,6 @@
 <?php
 
-namespace GGPHP\Absent\Repositories\Absent;
+namespace GGPHP\FileMedia\Repositories\Contracts;;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 /**
@@ -8,6 +8,6 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  *
  * @package namespace App\Repositories\Absent;
  */
-interface AbsentRepository extends RepositoryInterface
+interface FileMediaRepository extends RepositoryInterface
 {
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace GGPHP\FileManagement\Repositories\Eloquent;
+namespace GGPHP\FileMedia\Repositories\Eloquent;
 
-use GGPHP\FileManagement\Models\FileManagement;
-use GGPHP\FileManagement\Presenters\FileManagementPresenter;
-use GGPHP\FileManagement\Repositories\Contracts\FileManagementRepository;
+use GGPHP\FileMedia\Models\FileMedia;
+use GGPHP\FileMedia\Presenters\FileMediaPresenter;
+use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use Illuminate\Container\Container as Application;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
@@ -14,7 +14,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
  *
  * @package namespace App\Repositories\Eloquent;
  */
-class FileManagementRepositoryEloquent extends BaseRepository implements FileManagementRepository
+class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRepository
 {
     protected $userRepositoryEloquent, $excelExporterServices;
 
@@ -34,7 +34,7 @@ class FileManagementRepositoryEloquent extends BaseRepository implements FileMan
      */
     public function model()
     {
-        return FileManagement::class;
+        return FileMedia::class;
     }
 
     /**
@@ -52,7 +52,7 @@ class FileManagementRepositoryEloquent extends BaseRepository implements FileMan
      */
     public function presenter()
     {
-        return FileManagementPresenter::class;
+        return FileMediaPresenter::class;
     }
 
 }

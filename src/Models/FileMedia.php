@@ -1,12 +1,12 @@
 <?php
 
-namespace GGPHP\FileManagement\Models;
+namespace GGPHP\FileMedia\Models;
 
-use GGPHP\Absent\Presenters\AbsentPresenter;
+use GGPHP\FileMedia\Presenters\FileMediaPresenter;
 use GGPHP\Users\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class FileManagement extends Model
+class FileMedia extends Model
 {
     /**
      * Status Absent
@@ -15,7 +15,7 @@ class FileManagement extends Model
     const APPROVED = 'APPROVED';
 
 
-    protected $presenter = AbsentPresenter::class;
+    protected $presenter = FileMediaPresenter::class;
 
     protected $fillable = [
     ];

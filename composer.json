@@ -3,7 +3,7 @@
     "description": "A Package for file management",
     "keywords": [
         "keeloren",
-        "file-management"
+        "file-media"
     ],
     "homepage": "https://github.com/keeloren/file-management",
     "license": "MIT",
@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "GGPHP\\FileManagement\\": "src"
+            "GGPHP\\FileMedia\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GGPHP\\FileManagement\\Tests\\": "tests"
+            "GGPHP\\FileMedia\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "GGPHP\\FileManagement\\UsersServiceProvider"
+                "GGPHP\\FileMedia\\UsersServiceProvider"
             ]
         }
     }
