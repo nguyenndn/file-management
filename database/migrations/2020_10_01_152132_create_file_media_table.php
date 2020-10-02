@@ -14,6 +14,7 @@ class CreateFileMediaTable extends Migration
     public function up()
     {
         Schema::create('file_media', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
             $table->string('file_name_original');

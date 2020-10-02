@@ -3,6 +3,7 @@
 namespace GGPHP\FileMedia\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use GGPHP\FileMedia\Models\FileMedia;
 use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,15 @@ class FileMediaController extends Controller
      */
     public function upload(Request $request)
     {
-        dd($request->all());
+        $rename = $request->name;
+        $file = $request->file;
+        $data = [
+            'mime_type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+            'file_name_original' => $file->getClientOriginalName(),
+            'name' => $rename ?? '',
+        ];
+
+        $result = FileMedia::create($data);
     }
 }

@@ -3,8 +3,8 @@
 namespace GGPHP\FileMedia\Models;
 
 use GGPHP\FileMedia\Presenters\FileMediaPresenter;
-use GGPHP\Users\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class FileMedia extends Model
 {
@@ -14,19 +14,19 @@ class FileMedia extends Model
     const PENDING = 'PENDING';
     const APPROVED = 'APPROVED';
 
-
     protected $presenter = FileMediaPresenter::class;
 
     protected $fillable = [
+        'uuid', 'name', 'file_name_original', 'mime_type', 'disk', 'status', 'size'
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
+    protected static function boot()
     {
-        return $this->belongsTo(User::class);
-    }
+        parent::boot();
 
+        static::creating(function ($model) {
+            $model->uuid = Uuid::generate();
+        });
+    }
 
 }
