@@ -19,9 +19,10 @@ class CreateFileMediaTable extends Migration
             $table->string('name')->nullable();
             $table->string('file_name_original');
             $table->string('mime_type')->nullable();
-            $table->string('disk');
+            $table->string('disk')->nullable();
             $table->string('status')->nullable();
             $table->unsignedBigInteger('size');
+            $table->timestamps();
         });
     }
 

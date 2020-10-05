@@ -18,22 +18,22 @@ class RouteRegistrar extends CoreRegistrar
      */
     public function all()
     {
-        $this->forBread();
-    }
-
-    /**
-     * Register the routes needed for managing clients.
-     *
-     * @return void
-     */
-    public function forBread()
-    {
         $this->router->group(['middleware' => []], function ($router) {
 
             \Route::group(['prefix' => 'file'], function () {
                 \Route::post('upload', [
                     'uses' => 'FileMediaController@upload',
                     'as' => 'file.upload',
+                ]);
+
+                \Route::delete('delete/{id}', [
+                    'uses' => 'FileMediaController@delete',
+                    'as' => 'file.delete',
+                ]);
+
+                \Route::delete('download/{id}', [
+                    'uses' => 'FileMediaController@download',
+                    'as' => 'file.download',
                 ]);
             });
 

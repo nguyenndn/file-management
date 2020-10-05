@@ -15,11 +15,17 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.2",
+        "ext-json": "*",
+        "laravel/framework": "^8.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "league/fractal": "^0.19.2",
+        "prettus/l5-repository": "^2.6",
+        "spatie/laravel-medialibrary": "^8.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0"
+        "orchestra/testbench": "^6.2",
+        "laravel/laravel": "*"
     },
     "autoload": {
         "psr-4": {
@@ -28,13 +34,11 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "GGPHP\\FileMedia\\Tests\\": "tests"
+            "GGPHP\\FileMedia\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "sort-packages": true
@@ -42,7 +46,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "GGPHP\\FileMedia\\UsersServiceProvider"
+                "GGPHP\\FileMedia\\FileMediaServiceProvider"
             ]
         }
     }

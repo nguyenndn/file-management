@@ -17,16 +17,7 @@ class FileMedia extends Model
     protected $presenter = FileMediaPresenter::class;
 
     protected $fillable = [
-        'uuid', 'name', 'file_name_original', 'mime_type', 'disk', 'status', 'size'
+        'uuid', 'name', 'file_name_original', 'mime_type', 'disk', 'status', 'size', 'updated_at', 'created_at'
     ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->uuid = Uuid::generate();
-        });
-    }
 
 }

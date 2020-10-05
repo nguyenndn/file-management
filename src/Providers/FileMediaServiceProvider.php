@@ -8,6 +8,8 @@ use Illuminate\Support\ServiceProvider;
 
 class FileMediaServiceProvider extends ServiceProvider
 {
+    protected $namespace = 'GGPHP\FileMedia';
+
     /**
      * Bootstrap services.
      *
@@ -16,7 +18,7 @@ class FileMediaServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/config.php', 'constants-fileMedia'
+            __DIR__ . '/../../config/file-media.php', 'constants-fileMedia'
         );
         $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'lang-fileMedia');
         if ($this->app->runningInConsole()) {
@@ -32,5 +34,17 @@ class FileMediaServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(FileMediaRepository::class, FileMediaRepositoryEloquent::class);
+    }
+
+    public function map()
+    {
+        $this->mapApiRoutes();
+    }
+
+    protected function mapApiRoutes()
+    {
+        Route::prefix('file')->middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('RouteRegistrar.php'));
     }
 }

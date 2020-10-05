@@ -14,9 +14,10 @@ class FileMediaUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'absent_type_id' => 'required|exists:absent_types,id',
-            'absent_reason_id' => request('absent_type_id'),
-            'store_id' => 'required|exists:stores,id',
+            'file' => 'required',
+            'file.*' => 'file|mimes:jpeg,png,pdf,doc,docx',
+            'name' => 'nullable',
+            'name.*' => 'string',
         ];
     }
 }

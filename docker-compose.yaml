@@ -1,0 +1,45 @@
+version: '3'
+services:
+  # container for API
+  api:
+    image: kun391/phpup:3.0
+    ports:
+      - 9000:80
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www/app
+      - ./deployment/configs/queue.conf:/etc/supervisor/conf.d/queue.conf
+    environment:
+      - PHP_MEM_LIMIT=2048M
+  # container for database
+  db:
+    image: mysql:5.7
+    ports:
+      - 3305:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: user123
+  dbtest:
+    image: mysql:5.7
+    ports:
+      - 3303:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dbtest
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: user123
+  # container for UI database management
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9029:80
+    depends_on:
+      - db
+      - dbtest
+    environment:
+      PMA_HOSTS: db
+      PMA_USER: dbuser
+      PMA_PASSWORD: user123

@@ -2,7 +2,6 @@
 
 namespace GGPHP\FileMedia\Transformers;
 
-use GGPHP\Core\Traits\ApprovalTransformerTrait;
 use GGPHP\Core\Transformers\BaseTransformer;
 
 /**
@@ -12,8 +11,6 @@ use GGPHP\Core\Transformers\BaseTransformer;
  */
 class FileMediaTransformer extends BaseTransformer
 {
-    use ApprovalTransformerTrait;
-
     protected $defaultIncludes = [];
     protected $availableIncludes = [];
 

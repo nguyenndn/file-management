@@ -3,9 +3,12 @@
 namespace GGPHP\FileMedia\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use GGPHP\FileMedia\Http\Requests\FileMediaDeleteRequest;
+use GGPHP\FileMedia\Http\Requests\FileMediaUploadRequest;
 use GGPHP\FileMedia\Models\FileMedia;
 use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FileMediaController extends Controller
 {
@@ -40,23 +43,41 @@ class FileMediaController extends Controller
         $data['limit'] = $limit;
         $absents = $this->absentRepository->filterAbsent($data);
 
-        return $this->success($absents, trans('lang-absent::messages.common.getListSuccess'));
+        return $this->success($absents, trans('lang-fileMedia::messages.common.getListSuccess'));
+    }
+
+    /**
+     * @param FileMediaUploadRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(FileMediaUploadRequest $request)
+    {
+        $file = $this->fileMediaRepository->uploadFile($request);
+
+        return $this->success($file, trans('lang-fileMedia::messages.common.getListSuccess'));
+
     }
 
     /**
      * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\Response
      */
-    public function upload(Request $request)
+    public function delete(Request $request, $id)
     {
-        $rename = $request->name;
-        $file = $request->file;
-        $data = [
-            'mime_type' => $file->getMimeType(),
-            'size' => $file->getSize(),
-            'file_name_original' => $file->getClientOriginalName(),
-            'name' => $rename ?? '',
-        ];
+        $file = $this->fileMediaRepository->delete($id);
 
-        $result = FileMedia::create($data);
+        return $this->success([], trans('lang-fileMedia::messages.common.getListSuccess'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function download(Request $request, $id)
+    {
+        $filePath = public_path('url_file');
+        return response()->download($filePath);
     }
 }
