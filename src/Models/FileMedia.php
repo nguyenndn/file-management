@@ -11,8 +11,8 @@ class FileMedia extends Model
     /**
      * Status Absent
      */
-    const PENDING = 'PENDING';
-    const APPROVED = 'APPROVED';
+    const PUBLIC = 'PUBLIC';
+    const PRIVATE = 'PRIVATE';
 
     protected $presenter = FileMediaPresenter::class;
 

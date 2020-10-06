@@ -59,10 +59,15 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
         return FileMediaPresenter::class;
     }
 
-    public function uploadFile ($request)
+    /**
+     * @param $request
+     * UploadFile
+     */
+    public function uploadFile($request)
     {
         $rename = $request->name;
         $files = $request->file;
+        $pathFile = [];
 
         foreach ($files as $key => $file) {
             $isGenerateName = config('constants-fileMedia.name_generator');
@@ -74,21 +79,22 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
                 'name' => $isGenerateName ? $this->generateFileName($file) : ($rename ?? $this->generateFileName($file) ),
                 'uuid' => (string) Str::uuid(),
                 'disk' => $disks,
+                'status' => FileMedia::PUBLIC,
             ];
 
-            try {
-                $this->handleUploadFile->handleUploadFile($file, $data['name']);
-                $result = FileMedia::create($data);
-            } catch (Exception $e) {
-                return response()->json([
-                    'error' => $e->getMessage()
-                ], 404);
-            }
+            $pathFile[$key] = $this->handleUploadFile->handleUploadFile($file, $data['name']);
+            $result = FileMedia::create($data);
         }
+
+        return $pathFile;
     }
 
+    /**
+     * @param $file
+     * @return string
+     */
     function generateFileName($file) {
-        $filename   = uniqid() . "-" . time();
+        $filename   = uniqid() . "-" . time() . "-" . base64_encode(random_bytes(10));
         $extension  = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION );
         $basename   = $filename . "." . $extension;
         return $basename;

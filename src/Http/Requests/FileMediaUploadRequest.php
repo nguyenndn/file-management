@@ -2,9 +2,7 @@
 
 namespace GGPHP\FileMedia\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class FileMediaUploadRequest extends FormRequest
+class FileMediaUploadRequest extends BaseRequest
 {
     public function authorize()
     {

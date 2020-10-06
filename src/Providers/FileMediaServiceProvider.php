@@ -2,9 +2,11 @@
 
 namespace GGPHP\FileMedia\Providers;
 
+use GGPHP\FileMedia\Exceptions\FileMediaException;
 use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use GGPHP\FileMedia\Repositories\Eloquent\FileMediaRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
+use App\Exceptions\Handler;
 
 class FileMediaServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,11 @@ class FileMediaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->bind(
+            Handler::class,
+            FileMediaException::class
+        );
+
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/file-media.php', 'constants-fileMedia'
         );

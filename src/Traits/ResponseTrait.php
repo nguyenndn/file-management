@@ -1,33 +1,12 @@
 <?php
 
-namespace App\Traits;
+namespace GGPHP\FileMedia\Traits;
 
-use Illuminate\Http\Request;
 use Auth;
 use Config;
 
 trait ResponseTrait
 {
-    /**
-     * Check exists login
-     *
-     * @return boolean
-     */
-    public function checkAuth()
-    {
-        return !empty(Auth::user());
-    }
-    
-    /**
-     * Get current user
-     *
-     * @return \App\Models\User
-     */
-    public function getUser()
-    {
-        return Auth::user();
-    }
-    
     /**
      * Return success response
      *
@@ -51,7 +30,6 @@ trait ResponseTrait
             $code = $options['code'];
         }
         $response = [
-            'status' => $code,
             'title'  => $message
         ];
         if ($isShowData) {
@@ -74,7 +52,6 @@ trait ResponseTrait
     public function error($error, $message = [], $code = 404)
     {
         $response = [
-            'status' => $code,
             'title'  => $error,
             'errors' => [],
         ];

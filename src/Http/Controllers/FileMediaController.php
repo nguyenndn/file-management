@@ -7,11 +7,14 @@ use GGPHP\FileMedia\Http\Requests\FileMediaDeleteRequest;
 use GGPHP\FileMedia\Http\Requests\FileMediaUploadRequest;
 use GGPHP\FileMedia\Models\FileMedia;
 use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
+use GGPHP\FileMedia\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class FileMediaController extends Controller
 {
+    use ResponseTrait;
+
     /**
      * @var $fileMediaRepository
      */
@@ -52,9 +55,11 @@ class FileMediaController extends Controller
      */
     public function upload(FileMediaUploadRequest $request)
     {
-        $file = $this->fileMediaRepository->uploadFile($request);
-
-        return $this->success($file, trans('lang-fileMedia::messages.common.getListSuccess'));
+        $filePath = $this->fileMediaRepository->uploadFile($request);
+        $response = [
+            'url' => $filePath,
+        ];
+        return $this->success($response, trans('lang-fileMedia::messages.common.getListSuccess'), ['isContainByDataString' => true]);
 
     }
 
