@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "trans-century-292502",
+  "private_key_id": "f1667700ff2313ceb0c373101d9f7bab6122b038",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCgIEInOMlxYqTL\na8y/lEvoE4shHTvixyEsa/uvs8hqokJFZF/Md+MbZuXEWwAG30GL/jkU8gZq2yI1\ncWdA5dfopkQHNKVsgeEgQJ5AkaneO9SfLbg7GYN2Yjmj7GJKf1IWfXcn8US2CmVJ\n2jrVkoTsHYWpPZXxdKW8lOxkDZuLLhj8TEQXALo2k4qUibua759uvu1LtxaDtzZX\njIeObj+O9zeZ4UB76V7TiRD2MdZ+DtZCWkG8TwAuSbbFOI/Cd35/OERvsHQp7m2E\nsL2iADRReeZJudHQUsSAOkbUawFdhBrnLpCV0uFwcMiIAhZXijrRTtAyymSwvLJ5\n4/ysk0MBAgMBAAECggEAH9l6vwltDAgGZk3JWnvZQ06L2GjTrg5Um1zZIYAdh5RB\noULPSUC5ZAxp/E3rafKDO6Cz4uYm/58ZpU6qrn5pHSXhFxvSIYyN5lfkAkzW4FS/\nPHAgGmU/QE9WTrQocs/zWHTZPBEhzSGxNujY1f1AQiS3HswYpH/CrYljoZ0RSLPw\nXqmmzzwYFjl/v4SIfn0GnCnnxuHepbtZ7jmlarTf/59W/307vGzL2KfK6gG4yNWm\nRdR16ukuh0igv0liBDDwzNaJtLr5Y5OrmSd2Mc8lubCWPp4Wtc/kl7qjvqgOYyqC\nZGkVjUGPX0IceELfDPBeaz0yREJlQIsBUMPchMkKBwKBgQDYEZ4ZFFtllBl8pa5H\nVZEE0ks/VAUV/lPRaPMqfWJkdi4w/f3RISQhD5Kh8ucONw5nvYlrnmfO7g6sUOqO\ngHQalTWMhdD70vVDVxaTTPQ6AR0A6nuPCMAfsbJYmIoQUfbVYqPFCotQG9cD/JGD\ndiZryYxtPU8NCw5xxoNgtwm2swKBgQC9t/GCdCtKHyk7Yu0W6IR5p1ndnXtvdTxH\n2HwCwE5UKNVOtLUIv8qMVz18KjabkZw+Lbk0yZ8rMWuEr+fRpHZ5Hk/FGH3air1c\njgbl20zGYfP3wniNRWLQzgkTN7CSFnaRbsDmgFQsV5YILEic3FCa2SUIEm0QmHz9\n7IM8iCsZewKBgF8VIaWXt8Czs6OOpWru1KpygHqV1sce7HOy449HLg1XlGwq2Y82\nLlf+KmDqK5Ot1sEAP4EEbFo7mGlsEkwzauRn1PDJ0nV/GD9SC7U2oCMGamUEyure\nxu0rnXgvaFJWP3EXv0nuoe/W0IAInWBklfPI9er8l9T9kJWw7g+ZfMTRAoGBAJP0\nbg6U1mXZ42gDAG+LKjVNxBHHDUqhHT/SnvPuUafkqGXXHBAUsru8FaFNsoSkjDsZ\noYR/cPhYdEdof9vI7PQMJZ3KOexDouYZhVuhKUDVh1RDf4x8/lFlPUKVfciQaCuH\nOj0I+5wROlppXr+mOd5pVi3zYMc+hMvqtXZxo1sdAoGAZw9yGxEK87IH8Ic2chg/\nyVHawfSL+m8iAxjYX3wKgR1bgd90L3Zv4x+6KIa0IA2Yd9Rvmy919q7ZfBi8Mt7H\nGw+FN+150aDkMQVJ4SGwgTFmI/Vh7is9sl+fkXXTOsjBraxPnk2vauGyJv7HF34A\nHB4GhEBthYg5i/PCCeTbXlk=\n-----END PRIVATE KEY-----\n",
+  "client_email": "library-media@trans-century-292502.iam.gserviceaccount.com",
+  "client_id": "114149877557250438280",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/library-media%40trans-century-292502.iam.gserviceaccount.com"
+}

@@ -9,7 +9,7 @@ use Illuminate\Container\Container as Application;
 use Illuminate\Support\Str;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
-use GGPHP\FileMedia\Repositories\Services\HandleUploadFile;
+use GGPHP\FileMedia\Services\HandleUploadFile;
 
 /**
  * Class ProfileInformationRepositoryEloquent.
@@ -70,21 +70,25 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
         $pathFile = [];
 
         foreach ($files as $key => $file) {
+
             $isGenerateName = config('constants-fileMedia.name_generator');
             $disks = config('constants-fileMedia.disk_name');
+            $extension  = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION );
+
             $data = [
                 'mime_type' => $files[$key]->getMimeType(),
                 'size' => $file->getSize(),
                 'file_name_original' => $file->getClientOriginalName(),
-                'name' => $isGenerateName ? $this->generateFileName($file) : ($rename ?? $this->generateFileName($file) ),
+                'name' => $isGenerateName ? $this->generateFileName($file)
+                    : ($rename ? $rename[$key] . '.' . $extension : $this->generateFileName($file) ),
                 'uuid' => (string) Str::uuid(),
                 'disk' => $disks,
                 'status' => FileMedia::PUBLIC,
             ];
-
-            $pathFile[$key] = $this->handleUploadFile->handleUploadFile($file, $data['name']);
-            $result = FileMedia::create($data);
+            $pathFile[$key] = $this->handleUploadFile->uploadFile($file, $data['name']);
+            FileMedia::create($data);
         }
+
 
         return $pathFile;
     }
@@ -93,8 +97,8 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
      * @param $file
      * @return string
      */
-    function generateFileName($file) {
-        $filename   = uniqid() . "-" . time() . "-" . base64_encode(random_bytes(10));
+    public function generateFileName($file) {
+        $filename   = uniqid() . "-" . time() . "-" . md5(time());
         $extension  = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION );
         $basename   = $filename . "." . $extension;
         return $basename;

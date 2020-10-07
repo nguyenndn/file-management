@@ -13,6 +13,8 @@ class FileMedia extends Model
      */
     const PUBLIC = 'PUBLIC';
     const PRIVATE = 'PRIVATE';
+    const DOWNLOAD = 'DOWNLOAD';
+    const DELETE = 'DELETE';
 
     protected $presenter = FileMediaPresenter::class;
 

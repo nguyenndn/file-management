@@ -1,21 +1,31 @@
+dist: bionic
+cache:
+  directories:
+    - $COMPOSER_CACHE_DIR
+    - $HOME/.composer/cache
+    - vendor
+# env:
+#   DOCKER_COMPOSE_VERSION: 1.4.2
+sudo: required
+services:
+  - mysql
 language: php
-
 php:
-  - 7.1
-  - 7.2
-  - 7.3
-
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
-
+  - '7.4'
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
-
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+  - mysql -e 'CREATE DATABASE dbtest;'
+  - cp -R ./vendor/laravel/laravel/* .
+  - cp -R ./.travis/composer-laravel.json ./composer.json
+  #- cp .env.example .env
+  #- composer install
+#  - composer dump-autoload --no-scripts
+  #- php artisan key:generate
+#  - php artisan migrate
+  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
+  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
+  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="root"|g' phpunit.xml
+  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
+  # - php artisan db:seed
 script:
-  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
-
-after_script:
-  - php vendor/bin/ocular code-coverage:upload --format=php-clover coverage.clover
+  - vendor/bin/phpunit --configuration phpunit.xml

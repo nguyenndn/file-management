@@ -9,7 +9,7 @@ use GGPHP\FileMedia\Models\FileMedia;
 use GGPHP\FileMedia\Repositories\Contracts\FileMediaRepository;
 use GGPHP\FileMedia\Traits\ResponseTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class FileMediaController extends Controller
 {
@@ -19,6 +19,7 @@ class FileMediaController extends Controller
      * @var $fileMediaRepository
      */
     protected $fileMediaRepository;
+    protected $folderSave;
 
     /**
      * UserController constructor.
@@ -27,6 +28,7 @@ class FileMediaController extends Controller
     public function __construct(FileMediaRepository $fileMediaRepository)
     {
         $this->fileMediaRepository = $fileMediaRepository;
+        $this->folderSave = env('FOLDER_SAVE', 'FileMedia');
     }
 
     /**
@@ -60,7 +62,6 @@ class FileMediaController extends Controller
             'url' => $filePath,
         ];
         return $this->success($response, trans('lang-fileMedia::messages.common.getListSuccess'), ['isContainByDataString' => true]);
-
     }
 
     /**
@@ -70,19 +71,59 @@ class FileMediaController extends Controller
      */
     public function delete(Request $request, $id)
     {
-        $file = $this->fileMediaRepository->delete($id);
-
+        $this->downloadOrDeleteFile($id, FileMedia::DELETE);
         return $this->success([], trans('lang-fileMedia::messages.common.getListSuccess'));
     }
 
     /**
+     * Download file
      * @param Request $request
      * @param $id
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     public function download(Request $request, $id)
     {
-        $filePath = public_path('url_file');
-        return response()->download($filePath);
+        return $this->downloadOrDeleteFile($id, FileMedia::DOWNLOAD);
+    }
+
+    /**
+     * Check file exist in storage
+     * @param $disk
+     * @param $file
+     * @return bool
+     */
+    function existFileInStorage($disk, $file)
+    {
+        return Storage::disk($disk)->exists(env('FOLDER_SAVE') .'/' . $file);
+    }
+
+    /**
+     * @param $id
+     * @param $type
+     * @return mixed
+     */
+    function downloadOrDeleteFile($id, $type)
+    {
+        $object = FileMedia::findOrFail($id);
+        $fileName = $object->name;
+        $fileNameOriginal = $object->file_name_original;
+        $diskName = config('constants-fileMedia.disk_name');
+        $existFile = $this->existFileInStorage($diskName, $fileName);
+        if (!$existFile) {
+            $existFile = $this->existFileInStorage($diskName, $fileNameOriginal);
+        }
+
+        if ($existFile) {
+            if ($type === FileMedia::DOWNLOAD) {
+                return Storage::disk($diskName)->download(env('FOLDER_SAVE') .'/' . $fileName);
+            }
+
+            if ($type === FileMedia::DELETE) {
+                $this->fileMediaRepository->delete($id);
+                return Storage::disk($diskName)->delete(env('FOLDER_SAVE') .'/' . $fileName);
+            }
+        }
+
+        return;
     }
 }

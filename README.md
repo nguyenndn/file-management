@@ -17,10 +17,37 @@ composer require keeloren/file-management
 
 ## Usage
 
-``` php
-// Usage description here
 ```
+php artisan migrate
+```
+```
+Put all variable to .env
+# Media library config
+STORAGE_DISK=local (minio, s3, gcs )
+NAME_GENERATE=false
+FOLDER_SAVE=library
+PATH_TO_STORAGE=./data
 
+# Minio config
+MINIO_ACCESS_KEY=minio
+MINIO_SECRET_KEY=minio123
+MINIO_MINIO_ENDPOINT=http://minio:9000
+MINIO_BUCKET=media
+
+# AWS S3 config
+AWS_ACCESS_KEY_ID=AKIARRW5OS3IQUSRVZPT
+AWS_SECRET_ACCESS_KEY=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
+AWS_DEFAULT_REGION=us-east-2
+AWS_BUCKET=media-library-package
+AWS_URL=https://media-library-package.s3.us-east-2.amazonaws.com/library
+
+# Google Cloud config
+GOOGLE_CLOUD_PROJECT_ID=trans-century-292502
+GOOGLE_CLOUD_STORAGE_BUCKET=library-media
+GOOGLE_CLOUD_KEY_FILE=
+
+```
+If you do not want sync data from minio, please don't set variable `PATH_TO_STORAGE`
 ### Testing
 
 ``` bash
@@ -47,7 +74,3 @@ If you discover any security related issues, please email @gmail.com instead of 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
