@@ -16,9 +16,7 @@ before_script:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
-  #- cp -R ./vendor/laravel/laravel/* .
-  #- cp -R ./.travis/composer-laravel.json ./composer.json
-  - cp .env.example .env
+  - cp -R ./vendor/laravel/laravel/* .  - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
   - ls
   - pwd
