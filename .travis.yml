@@ -13,12 +13,14 @@ language: php
 php:
   - '7.4'
 before_script:
-  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+  - COMPOSER_MEMORY_LIMIT=-1
+  - composer update --prefer-dist
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
+  - cat ./config/database.php
   - ls
   - pwd
   - php artisan migrate
