@@ -20,14 +20,16 @@ before_script:
   #- cp -R ./.travis/composer-laravel.json ./composer.json
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
-  #- composer install
+  - php artisan migrate
 #  - composer dump-autoload --no-scripts
-  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
-  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
-  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
-  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
-  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
-  - cat phpunit.xml
-#  - php artisan migrate
+#  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
+#  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
+#  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
+#  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
+#  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
+#  - cat phpunit.xml
+  - cat .env
+  - ls
+  - pwd
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
