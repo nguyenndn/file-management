@@ -15,13 +15,12 @@ php:
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
   - composer self-update
-  - composer install --no-interaction
+  - composer install
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
-  - ls
   - pwd
   - php artisan migrate
 #  - composer dump-autoload --no-scripts
