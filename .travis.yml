@@ -25,7 +25,6 @@ before_script:
   - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
   - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="root"|g' phpunit.xml
   - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
-  - php artisan key:generate
   - php artisan migrate
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
