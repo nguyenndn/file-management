@@ -14,16 +14,16 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
-  - mysql -e 'CREATE DATABASE dbtest;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   #- cp -R ./vendor/laravel/laravel/* .
   #- cp -R ./.travis/composer-laravel.json ./composer.json
   - cp .env.example .env
   #- composer install
 #  - composer dump-autoload --no-scripts
-  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="localhost"|g' phpunit.xml
+  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
   - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
-  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="root"|g' phpunit.xml
+  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
   - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
   - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
   - cat phpunit.xml
