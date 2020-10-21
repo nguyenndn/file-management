@@ -14,7 +14,8 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
-  - composer update --prefer-dist
+  - composer self-update
+  - composer install --no-interaction
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
