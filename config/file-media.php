@@ -37,6 +37,8 @@ $disksConfig = [
     ],
 ];
 
+echo "AAAAAAAAAAA";
+
 $configs = config('filesystems');
 dd($configs['disks']);
 foreach ($listDisks as $disk) {
