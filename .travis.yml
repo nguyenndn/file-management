@@ -21,7 +21,6 @@ before_script:
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
-  - cat ./config/database.php
   - ls
   - pwd
   - php artisan migrate
