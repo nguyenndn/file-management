@@ -21,11 +21,11 @@ before_script:
   #- cp .env.example .env
   #- composer install
 #  - composer dump-autoload --no-scripts
-  #- php artisan key:generate
-#  - php artisan migrate
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="localhost"|g' phpunit.xml
   - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
   - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="root"|g' phpunit.xml
   - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
+  - php artisan key:generate
+  - php artisan migrate
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
