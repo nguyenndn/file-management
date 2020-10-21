@@ -21,8 +21,10 @@ before_script:
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
   - ls
-  - cat ./config/filesystems.php
-  - php artisan migrate
+  - cat ./composer.json
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+  - cat ./composer.json
+#  - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
 #  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
