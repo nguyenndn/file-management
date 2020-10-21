@@ -14,6 +14,7 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
+  - cat ./composer.json
   - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
@@ -23,7 +24,6 @@ before_script:
   - ls
   - cat ./composer.json
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
-  - cat ./composer.json
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
