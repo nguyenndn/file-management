@@ -19,7 +19,7 @@ before_script:
   #- cp -R ./vendor/laravel/laravel/* .
   #- cp -R ./.travis/composer-laravel.json ./composer.json
   - cp .env.example .env
-  - cp -R ./data/database.php ./config/database.php
+  - cp -R ./.travis/database.php ./config/database.php
   #- composer install
 #  - composer dump-autoload --no-scripts
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
