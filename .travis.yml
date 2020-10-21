@@ -20,6 +20,8 @@ before_script:
   #- cp -R ./.travis/composer-laravel.json ./composer.json
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
+  - ls
+  - pwd
   - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
@@ -28,8 +30,7 @@ before_script:
 #  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
 #  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
 #  - cat phpunit.xml
-  - cat .env
-  - ls
-  - pwd
+#  - cat .env
+
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
