@@ -38,7 +38,7 @@ $disksConfig = [
 ];
 
 $configs = config('filesystems');
-
+dd($configs['disks']);
 foreach ($listDisks as $disk) {
     if (array_key_exists($disk, $configs['disks'])) {
         unset($disksConfig[$disk]);
