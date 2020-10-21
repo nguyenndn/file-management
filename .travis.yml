@@ -15,8 +15,8 @@ php:
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
   - mysql -e 'CREATE DATABASE dbtest;'
-  - cp -R ./vendor/laravel/laravel/* .
-  - cp -R ./.travis/composer-laravel.json ./composer.json
+  #- cp -R ./vendor/laravel/laravel/* .
+  #- cp -R ./.travis/composer-laravel.json ./composer.json
   #- cp .env.example .env
   #- composer install
 #  - composer dump-autoload --no-scripts
