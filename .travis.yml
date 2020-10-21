@@ -18,7 +18,7 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   #- cp -R ./vendor/laravel/laravel/* .
   #- cp -R ./.travis/composer-laravel.json ./composer.json
-  #- cp .env.example .env
+  - cp .env.example .env
   #- composer install
 #  - composer dump-autoload --no-scripts
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="localhost"|g' phpunit.xml

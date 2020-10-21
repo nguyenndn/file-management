@@ -10,7 +10,7 @@ class HandleUploadFile
         $driver = config('constants-fileMedia.disk_name');
 
         $disk = Storage::disk($driver);
-dd($disk);
+
         $filePath = env('FOLDER_SAVE', 'library') . '/' . $name;
         $disk->putFileAs(env('FOLDER_SAVE', 'library'), $file, $name);
         $disk->setVisibility($filePath, 'public');
