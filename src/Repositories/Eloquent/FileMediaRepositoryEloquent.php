@@ -85,7 +85,10 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
                 'disk' => $disks,
                 'status' => FileMedia::PUBLIC,
             ];
+
             $pathFile[$key] = $this->handleUploadFile->uploadFile($file, $data['name']);
+            $this->handleUploadFile->createThumbnail($pathFile[$key]);
+
             FileMedia::create($data);
         }
 
