@@ -19,7 +19,7 @@ use GGPHP\FileMedia\Services\HandleUploadFile;
 class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRepository
 {
     protected $userRepositoryEloquent, $excelExporterServices, $handleUploadFile;
-
+    
     public function __construct(
         Application $app,
         HandleUploadFile $handleUploadFile
@@ -27,9 +27,9 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
         parent::__construct($app);
         $this->handleUploadFile = $handleUploadFile;
     }
-
+    
     protected $fieldSearchable = [
-
+    
     ];
     /**
      * Specify Model class name
@@ -40,7 +40,7 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
     {
         return FileMedia::class;
     }
-
+    
     /**
      * Boot up the repository, pushing criteria
      */
@@ -48,7 +48,7 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-
+    
     /**
      * Specify Presenter class name
      *
@@ -58,7 +58,7 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
     {
         return FileMediaPresenter::class;
     }
-
+    
     /**
      * @param $request
      * UploadFile
@@ -68,34 +68,34 @@ class FileMediaRepositoryEloquent extends BaseRepository implements FileMediaRep
         $rename = $request->name;
         $files = $request->file;
         $pathFile = [];
-
-        foreach ($files as $key => $file) {
-
-            $isGenerateName = config('constants-fileMedia.name_generator');
-            $disks = config('constants-fileMedia.disk_name');
-            $extension  = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION );
-
-            $data = [
-                'mime_type' => $files[$key]->getMimeType(),
-                'size' => $file->getSize(),
-                'file_name_original' => $file->getClientOriginalName(),
-                'name' => $isGenerateName ? $this->generateFileName($file)
-                    : ($rename ? $rename[$key] . '.' . $extension : $this->generateFileName($file) ),
-                'uuid' => (string) Str::uuid(),
-                'disk' => $disks,
-                'status' => FileMedia::PUBLIC,
-            ];
-
-            $pathFile[$key] = $this->handleUploadFile->uploadFile($file, $data['name']);
-            $this->handleUploadFile->createThumbnail($pathFile[$key]);
-
-            FileMedia::create($data);
+        if(!empty($files)) {
+            foreach ($files as $key => $file) {
+                
+                $isGenerateName = config('constants-fileMedia.name_generator');
+                $disks = config('constants-fileMedia.disk_name');
+                $extension  = pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION );
+                
+                $data = [
+                    'mime_type' => $files[$key]->getMimeType(),
+                    'size' => $file->getSize(),
+                    'file_name_original' => $file->getClientOriginalName(),
+                    'name' => $isGenerateName ? $this->generateFileName($file)
+                        : ($rename ? $rename[$key] . '.' . $extension : $this->generateFileName($file) ),
+                    'uuid' => (string) Str::uuid(),
+                    'disk' => $disks,
+                    'status' => FileMedia::PUBLIC,
+                ];
+                
+                $pathFile[$key] = $this->handleUploadFile->uploadFile($file, $data['name']);
+                FileMedia::create($data);
+            }
+            
+            return $pathFile;
         }
-
-
-        return $pathFile;
+        
+        return [];
     }
-
+    
     /**
      * @param $file
      * @return string

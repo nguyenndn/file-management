@@ -57,17 +57,23 @@ return [
         'NOT_ACCEPTABLE'       => 406,
         'SUCCESS'              => 200,
     ],
-
+    
     'disks' => $disksConfig,
-
+    
     'list_disk' => $listDisks,
-
+    
     'name_generator' => env('NAME_GENERATE', false),
-
+    
     /*
      * The disk on which to store added files and derived images by default. Choose
      * one or more of the disks you've configured in config/filesystems.php.
      */
     'disk_name' => env('STORAGE_DISK', 'local'),
+    'folder_save' => env('FOLDER_SAVE', 'library'),
+    
+    'watermark' => env('WATERMARK', 'false'),
+    
+    'thumbnail' => env('THUMBNAIL', 'true'),
     'thumbnail_size' => env('THUMBNAIL_SIZE', '30,30'),
+    'thumbnail_storage' => env('THUMBNAIL_STORAGE', 'thumbnails'),
 ];

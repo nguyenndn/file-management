@@ -6,26 +6,55 @@ use Intervention\Image\Facades\Image;
 
 class HandleUploadFile
 {
+    protected $driver;
+    protected $folderStorage;
+    protected $thumbnailStorage;
+    
+    public function __construct()
+    {
+        $this->driver = config('constants-fileMedia.disk_name');
+        $this->folderStorage = config('constants-fileMedia.folder_save');
+        $this->thumbnailStorage = $this->folderStorage . '/' . config('constants-fileMedia.thumbnail_storage');
+    }
+    
     public function uploadFile($file, $name)
     {
-        $driver = config('constants-fileMedia.disk_name');
-
-        $disk = Storage::disk($driver);
-
-        $filePath = env('FOLDER_SAVE', 'library') . '/' . $name;
-        $disk->putFileAs(env('FOLDER_SAVE', 'library'), $file, $name);
+        $disk = Storage::disk($this->driver);
+        
+        $filePath = $this->folderStorage . '/' . $name;
+        
+        if (config('constants-fileMedia.thumbnail')) {
+            $disk->putFileAs($this->thumbnailStorage, $file, $name);
+            $this->createThumbnail($name);
+        }
+        
+        if (config('constants-fileMedia.watermark')) {
+            $this->insertWatermart($name);
+        }
+        
+        $disk->putFileAs($this->folderStorage, $file, $name);
         $disk->setVisibility($filePath, 'public');
-
+        
         return $disk->url($filePath);
     }
-
+    
     public function createThumbnail($name)
     {
-        $filePath = env('APP_URL', 'http://localhost:8000') . $name;
+        $thumbnailpath = public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
+        
         $size = explode(',', config('constants-fileMedia.thumbnail_size'));
-
-        $img = Image::make(storage_path('library/5f9149ea47d3c-1603357162-68606be56dc11854df98169853582ee8.jpg'));
-
-        $img = Image::make($filePath)->resize($size[0], $size[1])->insert($filePath);
+        $width = $size[0];
+        $height = $size[1];
+        
+        $img = Image::make($thumbnailpath)->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        
+        $img->save($thumbnailpath);
+    }
+    
+    public function insertWatermart($name)
+    {
+        $pathImage =  public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
     }
 }
