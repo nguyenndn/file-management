@@ -3,6 +3,7 @@ namespace GGPHP\FileMedia\Services;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Spatie\ImageOptimizer\OptimizerChainFactory;
 
 class HandleUploadFile
 {
@@ -27,13 +28,15 @@ class HandleUploadFile
             $disk->putFileAs($this->thumbnailStorage, $file, $name);
             $this->createThumbnail($name);
         }
-        
         if (config('constants-fileMedia.watermark')) {
             $this->insertWatermart($name);
         }
-        
         $disk->putFileAs($this->folderStorage, $file, $name);
         $disk->setVisibility($filePath, 'public');
+        
+        if (config('constants-fileMedia.optimize_image')) {
+            $this->optimizeImage($name);
+        }
         
         return $disk->url($filePath);
     }
@@ -56,5 +59,12 @@ class HandleUploadFile
     public function insertWatermart($name)
     {
         $pathImage =  public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
+    }
+    
+    public function optimizeImage($name)
+    {
+        $path = public_path('storage/' . $this->folderStorage . '/' .  $name);
+        $img = Image::make($path);
+        $img->save($path, 10);
     }
 }

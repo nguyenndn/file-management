@@ -76,4 +76,7 @@ return [
     'thumbnail' => env('THUMBNAIL', 'true'),
     'thumbnail_size' => env('THUMBNAIL_SIZE', '30,30'),
     'thumbnail_storage' => env('THUMBNAIL_STORAGE', 'thumbnails'),
+    
+    'optimize_image' => env('OPTIMIZE_IMAGE', 'true'),
+
 ];
