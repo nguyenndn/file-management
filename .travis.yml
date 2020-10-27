@@ -19,12 +19,13 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
-  - cp -R ./.travis/database.php ./config/database.php
-  - cp -R ./travis/composer.json .
-  - cat ./composer.json
-  - cp -R ./.travis/phpunit.xml .
-  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
   - ls -la
+#  - cp -R ./.travis/database.php ./config/database.php
+#  - cp -R ./travis/composer.json .
+#  - cat ./composer.json
+#  - cp -R ./.travis/phpunit.xml .
+#  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
