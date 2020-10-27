@@ -14,14 +14,13 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
-  - cat ./composer.json
   - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - cp -R ./.travis/database.php ./config/database.php
-  - ls
+  - cp -R ./travis/composer.json .
   - cat ./composer.json
   - cp -R ./.travis/phpunit.xml .
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
