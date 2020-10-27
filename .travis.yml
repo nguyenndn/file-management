@@ -19,7 +19,7 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
   - cp -R ./ ./packages
-  - ls -la
+  - ls
 #  - cp -R ./vendor/laravel/laravel/* .
 #  - cp .env.example .env
 #  - ls -la
@@ -40,4 +40,4 @@ before_script:
 #  - cat .env
 
 script:
-  - vendor/bin/phpunit --configuration phpunit.xml
+#  - vendor/bin/phpunit --configuration phpunit.xml
