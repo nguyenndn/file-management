@@ -17,9 +17,12 @@ before_script:
   - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
-  - cp -R ./vendor/laravel/laravel/* .
-  - cp .env.example .env
+  - mkdir packages
+  - cp -R ./ ./packages
   - ls -la
+#  - cp -R ./vendor/laravel/laravel/* .
+#  - cp .env.example .env
+#  - ls -la
 #  - cp -R ./.travis/database.php ./config/database.php
 #  - cp -R ./travis/composer.json .
 #  - cat ./composer.json
