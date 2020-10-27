@@ -18,8 +18,9 @@ before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
-  - cp -R ./ ./packages
   - ls
+  - cp -R ./ ./packages
+
 #  - cp -R ./vendor/laravel/laravel/* .
 #  - cp .env.example .env
 #  - ls -la
