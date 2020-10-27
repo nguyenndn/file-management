@@ -23,7 +23,7 @@ before_script:
   - cp -R ./.travis/database.php ./config/database.php
   - ls
   - cat ./composer.json
-  - cp -R ./travis/phpunit.xml .
+  - cp -R ./.travis/phpunit.xml .
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
