@@ -25,6 +25,7 @@ before_script:
   - cat ./composer.json
   - cp -R ./.travis/phpunit.xml .
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+  - ls -la
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
