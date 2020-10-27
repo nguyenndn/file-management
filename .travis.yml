@@ -19,7 +19,7 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
   - ls
-  - cp -R ./ ./packages
+  - rm -R ./ ./packages
 
 #  - cp -R ./vendor/laravel/laravel/* .
 #  - cp .env.example .env
