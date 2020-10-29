@@ -78,5 +78,7 @@ return [
     'thumbnail_storage' => env('THUMBNAIL_STORAGE', 'thumbnails'),
     
     'optimize_image' => env('OPTIMIZE_IMAGE', 'true'),
+    'rotate_image' => env('ROTATE_IMAGE', 'true'),
+    'rotate_deg' => env('ROTATE_DEG', '-90'),
 
 ];
