@@ -20,7 +20,7 @@ before_script:
   - mkdir packages
   - ls
   - rsync -a --exclude 'packages' *  packages/
-  - rm -r !("packages", "vendor")
+  - rm -r !("packages"|"vendor")
   - ls
 #  - cp -R ./vendor/laravel/laravel/* .
 #  - cp .env.example .env
