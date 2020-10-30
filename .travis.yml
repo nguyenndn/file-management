@@ -19,8 +19,8 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
   - ls
-  - rsync -a --exclude 'packages' *  packages/
-  - rm -r !("packages")
+  - rsync -a --exclude 'packages,vendor' *  packages/
+  - rm -r !("packages,vendor")
   - ls
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
