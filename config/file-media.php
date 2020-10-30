@@ -72,7 +72,8 @@ return [
     'folder_save' => env('FOLDER_SAVE', 'library'),
     
     'watermark' => env('WATERMARK', 'false'),
-    
+    'watermark_test' => env('WATERMARK_TEXT', 'Watermark'),
+
     'thumbnail' => env('THUMBNAIL', 'true'),
     'thumbnail_size' => env('THUMBNAIL_SIZE', '30,30'),
     'thumbnail_storage' => env('THUMBNAIL_STORAGE', 'thumbnails'),

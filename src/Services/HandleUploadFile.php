@@ -61,8 +61,9 @@ class HandleUploadFile
     public function insertWatermark($pathImage)
     {
         $img = Image::make($pathImage);
-//        $img->insert(public_path('watermark.png'));
-        $img->text('THIS IS A WATERMARK', 200 , 170, function($data){
+        $text = config('constants-fileMedia.watermark_test');
+
+        $img->text($text, 200 , 170, function($data){
             $data->size(50);
             $data->color('000000');
             $data->align('center');
