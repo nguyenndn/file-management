@@ -20,7 +20,7 @@ before_script:
   - mkdir packages
   - ls
   - rsync -a --exclude 'packages' *  packages/
-  - cd packages/
+  - rm -r !("packages")
   - ls
 
 #  - rm -R ./ ./packages
