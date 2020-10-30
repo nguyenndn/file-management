@@ -22,18 +22,15 @@ before_script:
   - rsync -a --exclude 'packages' *  packages/
   - rm -r !("packages")
   - ls
-
-#  - rm -R ./ ./packages
-
-#  - cp -R ./vendor/laravel/laravel/* .
-#  - cp .env.example .env
-#  - ls -la
-#  - cp -R ./.travis/database.php ./config/database.php
-#  - cp -R ./travis/composer.json .
-#  - cat ./composer.json
-#  - cp -R ./.travis/phpunit.xml .
-#  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
-
+  - cp -R ./vendor/laravel/laravel/* .
+  - cp .env.example .env
+  - ls -la
+  - cp -R ./.travis/database.php ./config/database.php
+  - cp -R ./travis/composer.json .
+  - cat ./composer.json
+  - cp -R ./.travis/phpunit.xml .
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+  - ls
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
 #  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
