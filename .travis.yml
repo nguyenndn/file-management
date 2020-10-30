@@ -19,6 +19,7 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
   - ls
+  - shopt -s extglob; set +H
   - mv -f * !(packages/) ./packages/
   - ls
 #  - rm -R ./ ./packages
