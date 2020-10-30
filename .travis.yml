@@ -17,10 +17,10 @@ before_script:
   - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
-  - mkdir packages
+  - mkdir packages/file-manager
   - ls
-  - rsync -a --exclude 'packages' *  packages/
-  - rm -r !("packages"|"vendor")
+  - rsync -a --exclude 'packages' *  packages/file-manager
+  - rm -r !("packages"|"vendor"|".travis")
   - ls
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
