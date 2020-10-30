@@ -20,15 +20,15 @@ before_script:
   - mkdir -p packages/file-manager
   - ls
   - rsync -a --exclude 'packages' *  packages/file-manager
-  - rm -r !("packages"|"vendor"|".travis")
+  - rm -r !("packages"|"vendor"|"travis")
   - ls
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - ls -la
-  - cp -R ./.travis/database.php ./config/database.php
+  - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/composer.json .
   - cat ./composer.json
-  - cp -R ./.travis/phpunit.xml .
+  - cp -R ./travis/phpunit.xml .
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
   - php artisan migrate
   - composer dump-autoload --no-scripts
