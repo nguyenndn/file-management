@@ -19,8 +19,8 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - mkdir packages
   - ls
-  - sudo apt install rsync
   - rsync -a --exclude 'packages' *  packages/
+  - cd packages/
   - ls
 
 #  - rm -R ./ ./packages
