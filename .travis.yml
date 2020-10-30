@@ -17,7 +17,7 @@ before_script:
   - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
-  - mkdir packages/file-manager
+  - mkdir -p packages/file-manager
   - ls
   - rsync -a --exclude 'packages' *  packages/file-manager
   - rm -r !("packages"|"vendor"|".travis")
