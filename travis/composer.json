@@ -26,8 +26,10 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
         "keeloren/file-management": "dev-master",
-        "laravel/tinker": "^2.0"
-
+        "laravel/tinker": "^2.0",
+        "laravel/framework": "^8.12",
+        "ext-json": "*",
+        "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -50,8 +52,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Packages\\": "packages/",
-            "GGPHP\\FileMedia\\": "src/"
+            "GGPHP\\FileMedia\\": "packages/file-manager/src/"
         },
         "classmap": [
             "database/seeds",
