@@ -24,15 +24,14 @@ before_script:
   - ls
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
-  - ls -la
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/composer.json .
   - cp -R ./travis/config .
 #  - cat ./composer.json
   - cp -R ./travis/phpunit.xml .
-#  - cat ./config/app.php
   - composer dumpautoload
   - composer update
+  - cat ./phpunit.xml
 #  - php artisan route:list
 #  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
 #  - php artisan migrate
