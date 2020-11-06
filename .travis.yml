@@ -14,7 +14,7 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
-#  - composer update
+  - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - mkdir -p packages/file-manager
@@ -24,6 +24,7 @@ before_script:
   - ls
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
+  - ls -la
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/composer.json .
   - cp -R ./travis/config .
