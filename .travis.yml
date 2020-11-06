@@ -29,6 +29,7 @@ before_script:
   - cp -R ./travis/composer.json .
   - cp -R ./travis/config .
   - cat ./composer.json
+  - composer update
   - cp -R ./travis/phpunit.xml .
   - ls
   - php artisan route:list
