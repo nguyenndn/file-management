@@ -32,7 +32,7 @@ before_script:
 #  - composer update
   - cp -R ./travis/phpunit.xml .
   - cat ./config/app.php
-#  - php artisan route:list
+  - php artisan route:list
 #  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
