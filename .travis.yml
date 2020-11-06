@@ -14,7 +14,7 @@ php:
   - '7.4'
 before_script:
   - COMPOSER_MEMORY_LIMIT=-1
-  - composer update
+#  - composer update
   - mysql -e 'CREATE DATABASE IF NOT EXISTS dbtest;'
   - mysql -e 'SHOW DATABASES;'
   - mkdir -p packages/file-manager
@@ -29,7 +29,7 @@ before_script:
   - cp -R ./travis/composer.json .
   - cp -R ./travis/config .
   - cat ./composer.json
-  - composer update
+#  - composer update
   - cp -R ./travis/phpunit.xml .
   - cat ./config/app.php
 #  - php artisan route:list
