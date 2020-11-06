@@ -29,17 +29,18 @@ before_script:
   - cp -R ./travis/composer.json .
   - cat ./composer.json
   - cp -R ./travis/phpunit.xml .
-  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
-  - php artisan migrate
-  - composer dump-autoload --no-scripts
-  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
-  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
-  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
-  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
-  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
-  - cat phpunit.xml
-  - cat .env
   - ls
+#  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
+#  - php artisan migrate
+#  - composer dump-autoload --no-scripts
+#  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
+#  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
+#  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
+#  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
+#  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
+#  - cat phpunit.xml
+#  - cat .env
+#  - ls
 
 
 script:
