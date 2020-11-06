@@ -27,6 +27,7 @@ before_script:
   - ls -la
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/composer.json .
+  - cp -R ./travis/config .
   - cat ./composer.json
   - cp -R ./travis/phpunit.xml .
   - ls
