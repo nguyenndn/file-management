@@ -28,11 +28,11 @@ before_script:
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/composer.json .
   - cp -R ./travis/config .
-  - cat ./composer.json
-#  - composer update
+#  - cat ./composer.json
   - cp -R ./travis/phpunit.xml .
-  - cat ./config/app.php
+#  - cat ./config/app.php
   - composer dumpautoload
+  - composer update
 #  - php artisan route:list
 #  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer update --prefer-dist
 #  - php artisan migrate
