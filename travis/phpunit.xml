@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true">
+    <testsuites>
+        <testsuite name="Test">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_HOST" value="dbtest"/>
+        <env name="DB_PORT" value="3306"/>
+        <env name="DB_DATABASE" value="dbtest"/>
+        <env name="DB_USERNAME" value="travis"/>
+        <env name="DB_PASSWORD" value="user123"/>
+        <env name="FOLDER_SAVE" value="library"/>
+        <env name="NAME_GENERATE" value="true"/>
+    </php>
+</phpunit>

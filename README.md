@@ -12,7 +12,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 You can install the package via composer:
 
 ```bash
-composer require keeloren/file-management
+composer require greenglobal/laravel-file-management
 ```
 
 ## Usage
@@ -68,7 +68,7 @@ If you discover any security related issues, please email @gmail.com instead of 
 
 ## Credits
 
-- [Kee](https://github.com/keeloren)
+- [NguyenND](https://github.com/keeloren)
 - [All Contributors](../../contributors)
 
 ## License
