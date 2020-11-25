@@ -19,7 +19,7 @@ before_script:
   - mysql -e 'SHOW DATABASES;'
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
-  - cp -R ./.travis/database.php ./config/database.php
+  - cp -R ./travis/database.php ./config/database.php
   - pwd
   - php artisan migrate
 #  - composer dump-autoload --no-scripts
