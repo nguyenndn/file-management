@@ -20,8 +20,8 @@ before_script:
   - cp -R ./vendor/laravel/laravel/* .
   - cp .env.example .env
   - cp -R ./travis/database.php ./config/database.php
-  - ls -la
-#  - cp -R ./travis/.config/filesystems.php ./config/filesystems.php
+  - cp -R ./travis/config/filesystems.php ./config/filesystems.php
+  - cd config && cat filesystems.php
 #  - cat ./config/filesystems.php
 #  - php artisan migrate
 #  - composer dump-autoload --no-scripts
