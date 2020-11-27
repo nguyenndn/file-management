@@ -21,7 +21,7 @@ before_script:
   - cp .env.example .env
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/config/filesystems.php ./config/filesystems.php
-  - cp -R ./travis/config/storage ./storage
+  - cp -R ./travis/storage ./storage
   - cd storage && ls
 #  - cat ./config/filesystems.php
 #  - php artisan migrate

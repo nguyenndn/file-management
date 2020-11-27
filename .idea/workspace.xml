@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b42d0f9-5713-412a-9a33-90bda393c315" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/travis/storage/GG-services/trans-century-292502-f1667700ff23.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/travis/storage/tests/test.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="295">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -321,18 +318,18 @@
       <workItem from="1604651966493" duration="97000" />
       <workItem from="1605778628216" duration="41000" />
       <workItem from="1606269272502" duration="1407000" />
-      <workItem from="1606288151632" duration="5001000" />
+      <workItem from="1606288151632" duration="5606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9656000" />
+    <option name="totallyTimeSpent" value="10261000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="86" y="111" width="1766" height="890" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4971815" visible="true" weight="0.18430233" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4971815" visible="true" weight="0.18430233" />
       <window_info id="Structure" order="1" sideWeight="0.50281847" side_tool="true" weight="0.19850586" />
       <window_info id="Favorites" order="2" sideWeight="0.5015625" side_tool="true" weight="0.22381808" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -346,7 +343,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32919955" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502907" side_tool="true" weight="0.42259887" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" visible="true" weight="0.22015916" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" visible="true" weight="0.31564987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24955116" />
@@ -430,8 +427,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="295">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
         </state>
       </provider>
     </entry>
