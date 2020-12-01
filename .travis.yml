@@ -35,6 +35,7 @@ before_script:
   - cat phpunit.xml
   - sed -i 's|TRAVIS_TESTING=false|TRAVIS_TESTING=true|g' .env
   - cat .env
+  - cp -R ./travis/tests ./
 
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
