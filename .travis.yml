@@ -33,10 +33,8 @@ before_script:
   - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
   - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
   - cat phpunit.xml
-  - sed -i 's|TRAVIS_TESTING.*|TRAVIS_TESTING=true|" \ .env
   - sed -i \
-    -e "s|^TRAVIS_TESTING=false|TRAVIS_TESTING=true|" \
-    .env
+    -e "s|^TRAVIS_TESTING=false|TRAVIS_TESTING=true|" \  .env
   - cat .env
 
 script:
