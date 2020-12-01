@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b42d0f9-5713-412a-9a33-90bda393c315" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/travis/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/travis/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,23 +12,24 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <executablePath>composer</executablePath>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/travis/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+            <state relative-caret-position="401">
+              <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+            <state relative-caret-position="402">
+              <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -56,8 +57,8 @@
         <option value="$PROJECT_DIR$/travis/tests/TestCase.php" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/docker-compose.yaml" />
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/travis/composer.json" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -291,23 +292,22 @@
       <workItem from="1605778628216" duration="41000" />
       <workItem from="1606269272502" duration="1407000" />
       <workItem from="1606288151632" duration="6806000" />
-      <workItem from="1606786035806" duration="15046000" />
+      <workItem from="1606786035806" duration="15194000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26507000" />
+    <option name="totallyTimeSpent" value="26655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="86" y="111" width="1766" height="890" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4971815" visible="true" weight="0.18662791" />
       <window_info id="Structure" order="1" sideWeight="0.50281847" side_tool="true" weight="0.19850586" />
       <window_info id="Favorites" order="2" sideWeight="0.5015625" side_tool="true" weight="0.22381808" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32881355" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32881355" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3275862" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -316,7 +316,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32919955" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502907" side_tool="true" weight="0.42259887" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" visible="true" weight="0.33289126" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" weight="0.33289126" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24955116" />
@@ -454,17 +454,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/travis/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        <state relative-caret-position="401">
+          <caret line="68" column="18" lean-forward="true" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/travis/composer.json">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="60" column="62" lean-forward="true" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+        <state relative-caret-position="402">
+          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
         </state>
       </provider>
     </entry>

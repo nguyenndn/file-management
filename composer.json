@@ -18,14 +18,16 @@
         "php": "^7.2",
         "ext-json": "*",
         "aws/aws-sdk-php": "^3.158",
+        "fideloper/proxy": "^4.2",
+        "fruitcake/laravel-cors": "^2.0",
+        "intervention/image": "^2.5",
         "laravel/framework": "^8.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "league/fractal": "^0.19.2",
         "prettus/l5-repository": "^2.6",
+        "spatie/laravel-image-optimizer": "^1.6",
         "spatie/laravel-medialibrary": "^8.0.0",
-        "superbalist/laravel-google-cloud-storage": "^2.2",
-        "fideloper/proxy": "^4.2",
-        "fruitcake/laravel-cors": "^2.0"
+        "superbalist/laravel-google-cloud-storage": "^2.2"
     },
     "require-dev": {
         "orchestra/testbench": "^6.2",
