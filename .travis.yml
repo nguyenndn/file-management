@@ -25,7 +25,6 @@ before_script:
   - ls
   - cat ./config/filesystems.php
   - php artisan migrate
-  - composer dump-autoload --no-scripts
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
   - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
@@ -36,6 +35,10 @@ before_script:
   - sed -i 's|TRAVIS_TESTING=false|TRAVIS_TESTING=true|g' .env
   - cat .env
   - cp -R ./travis/tests ./
+  - ls
+  - composer update
+  - composer dump-autoload --no-scripts
+  - cd tests && ls
 
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
