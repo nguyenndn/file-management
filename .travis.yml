@@ -35,6 +35,7 @@ before_script:
   - cat .env
   - cp -R ./travis/tests ./
   - ls
+  - cp -R ./travis/composer.json ./composer.json
   - composer update
   - composer dump-autoload --no-scripts
   - cd tests && ls
