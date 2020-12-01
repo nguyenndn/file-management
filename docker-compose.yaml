@@ -8,7 +8,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./src:/var/www/app
+      - .:/var/www/app
     environment:
       - PHP_MEM_LIMIT=2048M
   # container for database

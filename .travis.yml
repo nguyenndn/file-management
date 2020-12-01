@@ -22,7 +22,6 @@ before_script:
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/config/filesystems.php ./config/filesystems.php
   - cp -R ./travis/storage ./storage
-  - ls
   - cat ./config/filesystems.php
   - php artisan migrate
   - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
