@@ -22,7 +22,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
-        "keeloren/file-management": "dev-master",
+        "keeloren/file-management": "dev-develop",
         "laravel/tinker": "^2.0",
         "ext-json": "*",
         "league/flysystem-aws-s3-v3": "^1.0"
