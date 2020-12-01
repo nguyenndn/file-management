@@ -43,6 +43,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "GGPHP\\FileMedia\\": "src/",
             "GGPHP\\FileMedia\\Tests\\": "tests/"
         }
     },
