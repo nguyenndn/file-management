@@ -49,13 +49,16 @@
         "laravel": {
             "dont-discover": [
                 "laravel/telescope"
+            ],
+            "providers": [
+                "GGPHP\\FileMedia\\Providers\\FileMediaServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "GGPHP\\FileMedia\\": "packages/file-manager/src/"
+            "GGPHP\\FileMedia\\": "packages/file-manager/src/",
         },
         "classmap": [
             "database/seeds",
