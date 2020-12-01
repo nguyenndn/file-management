@@ -22,17 +22,17 @@ before_script:
   - cp -R ./travis/database.php ./config/database.php
   - cp -R ./travis/config/filesystems.php ./config/filesystems.php
   - cp -R ./travis/storage ./storage
-  - cd storage && ls
-#  - cat ./config/filesystems.php
-#  - php artisan migrate
-#  - composer dump-autoload --no-scripts
-#  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
-#  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
-#  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
-#  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
-#  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
-#  - cat phpunit.xml
-#  - cat .env
+  - ls
+  - cat ./config/filesystems.php
+  - php artisan migrate
+  - composer dump-autoload --no-scripts
+  - sed -i 's|name="DB_HOST" value="dbtest"|name="DB_HOST" value="127.0.0.1"|g' phpunit.xml
+  - sed -i 's|name="DB_DATABASE" value="dbtest"|name="DB_DATABASE" value="dbtest"|g' phpunit.xml
+  - sed -i 's|name="DB_USERNAME" value="dbuser"|name="DB_USERNAME" value="travis"|g' phpunit.xml
+  - sed -i 's|name="DB_PASSWORD" value="user123"|name="DB_PASSWORD" value=""|g' phpunit.xml
+  - sed -i 's|name="DB_CONNECTION" value="dbtest"|name="DB_CONNECTION" value="mysql"|g' phpunit.xml
+  - cat phpunit.xml
+  - cat .env
 
 script:
   - vendor/bin/phpunit --configuration phpunit.xml
