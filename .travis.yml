@@ -35,7 +35,7 @@ before_script:
   - cat phpunit.xml
   - sed -i 's|TRAVIS_TESTING.*|TRAVIS_TESTING=true|" \ .env
   - sed -i \
-    -e "s|^TRAVIS_TESTING=false.*|TRAVIS_TESTING=true|" \
+    -e "s|^TRAVIS_TESTING=false|TRAVIS_TESTING=true|" \
     .env
   - cat .env
 
