@@ -13,7 +13,7 @@ class FileMediaUploadRequest extends BaseRequest
     {
         return [
             'file' => 'required',
-            'file.*' => 'file|mimes:jpeg,png,pdf,doc,docx',
+            'file.*' => 'file|mimes:jpeg,png,pdf,doc,docx,jpg',
             'name' => 'nullable',
             'name.*' => 'string',
         ];
