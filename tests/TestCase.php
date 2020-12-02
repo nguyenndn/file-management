@@ -14,7 +14,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-
+//        $this->loadLaravelMigrations();
         $this->artisan('migrate', ['--database' => 'dbtest']);
 
         $this->beforeApplicationDestroyed(function () {
