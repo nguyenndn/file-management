@@ -43,20 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env.example">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Services/HandleUploadFile.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="382">
+              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
               <folding>
                 <element signature="e#43#82#0#PHP" expanded="true" />
               </folding>
@@ -386,12 +377,12 @@
       <workItem from="1605778628216" duration="41000" />
       <workItem from="1606269272502" duration="1407000" />
       <workItem from="1606288151632" duration="6806000" />
-      <workItem from="1606786035806" duration="27552000" />
+      <workItem from="1606786035806" duration="29848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39013000" />
+    <option name="totallyTimeSpent" value="41309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="86" y="111" width="1766" height="890" extended-state="0" />
@@ -411,7 +402,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32919955" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.502907" side_tool="true" weight="0.42259887" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" visible="true" weight="0.2917772" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49709302" weight="0.2917772" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24955116" />
@@ -599,8 +590,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Services/HandleUploadFile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="382">
+          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
           <folding>
             <element signature="e#43#82#0#PHP" expanded="true" />
           </folding>

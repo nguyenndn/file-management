@@ -26,21 +26,21 @@ class HandleUploadFile
 
         $pathImage = public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
 
-        if (config('constants-fileMedia.thumbnail')) {
+        if (is_bool(config('constants-fileMedia.thumbnail')) && config('constants-fileMedia.thumbnail')) {
             $disk->putFileAs($this->thumbnailStorage, $file, $name);
             $this->createThumbnail($name);
         }
 
-        if (config('constants-fileMedia.watermark')) {
+        if (is_bool(config('constants-fileMedia.watermark')) && config('constants-fileMedia.watermark')) {
             $this->insertWatermark($pathImage);
         }
 
-        $disk->putFileAs($this->folderStorage, $file, $name);
-        $disk->setVisibility($filePath, 'public');
-
-//        if (config('constants-fileMedia.optimize_image')) {
+//        if (is_bool(config('constants-fileMedia.optimize_image')) && config('constants-fileMedia.optimize_image')) {
 //            $this->optimizeImage($name);
 //        }
+
+        $disk->putFileAs($this->folderStorage, $file, $name);
+        $disk->setVisibility($filePath, 'public');
 
         return $disk->url($filePath);
     }
