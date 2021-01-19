@@ -39,16 +39,7 @@ class FileMediaController extends Controller
      */
     public function index(Request $request)
     {
-        $limit = config('constants-absent.SEARCH_VALUES_DEFAULT.LIMIT');
-        if ($request->has('limit')) {
-            $limit = $request->limit;
-        }
-
-        $data = $request->all();
-        $data['limit'] = $limit;
-        $absents = $this->absentRepository->filterAbsent($data);
-
-        return $this->success($absents, trans('lang-fileMedia::messages.common.getListSuccess'));
+       return [];
     }
 
     /**

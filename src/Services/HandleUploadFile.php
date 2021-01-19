@@ -20,45 +20,72 @@ class HandleUploadFile
 
     public function uploadFile($file, $name)
     {
+        $url = '';
+
         $disk = Storage::disk($this->driver);
 
         $filePath = $this->folderStorage . '/' . $name;
 
         $pathImage = public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
 
-        if (is_bool(config('constants-fileMedia.thumbnail')) && config('constants-fileMedia.thumbnail')) {
-            $disk->putFileAs($this->thumbnailStorage, $file, $name);
-            $this->createThumbnail($name);
+        $disk->putFileAs($this->folderStorage, $file, $name);
+        $disk->setVisibility($filePath, 'public');
+
+        if ($this->driver === 'local') {
+            $url = asset($disk->url($filePath));
+//            return asset($disk->url($filePath));
+        } else {
+            $url = $disk->url($filePath);
+//            return
         }
 
-        if (is_bool(config('constants-fileMedia.watermark')) && config('constants-fileMedia.watermark')) {
-            $this->insertWatermark($pathImage);
+        if (is_bool(config('constants-fileMedia.thumbnail')) && config('constants-fileMedia.thumbnail')) {
+//            $disk->putFileAs($this->thumbnailStorage, $file, $name);
+            $this->createThumbnail($disk, $url, $file, $name);
         }
+//
+//        if (is_bool(config('constants-fileMedia.watermark')) && config('constants-fileMedia.watermark')) {
+//            $this->insertWatermark($pathImage);
+//        }
 
 //        if (is_bool(config('constants-fileMedia.optimize_image')) && config('constants-fileMedia.optimize_image')) {
 //            $this->optimizeImage($name);
 //        }
 
-        $disk->putFileAs($this->folderStorage, $file, $name);
-        $disk->setVisibility($filePath, 'public');
-
-        return $disk->url($filePath);
+//        $disk->putFileAs($this->folderStorage, $file, $name);
+//        $disk->setVisibility($filePath, 'public');
+//
+//        if ($this->driver === 'local') {
+//            return asset($disk->url($filePath));
+//        } else {
+//            return $disk->url($filePath);
+//        }
+        return $url;
     }
 
-    public function createThumbnail($name)
+    public function createThumbnail($disk, $url, $file, $name)
     {
-        $thumbnailpath = public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
+//        $thumbnailpath = public_path('storage/' . $this->thumbnailStorage . '/' .  $name);
+//        $thumbnailpath = env('AWS_URL') . '/' . $this->thumbnailStorage . '/' .  $name;
+        $thumbnailpath = $this->thumbnailStorage . '/' . $name;
+
+//        $disk->putFileAs($this->folderStorage, $file, $name);
 
         $size = explode(',', config('constants-fileMedia.thumbnail_size'));
         $width = $size[0];
         $height = $size[1];
 
-        $img = Image::make($thumbnailpath)->resize($width, $height, function ($constraint) {
+        $img = Image::make($url)->resize($width, $height, function ($constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         });
 
-        $img->save($thumbnailpath);
+        $img = $img->stream();
+        $disk->put($thumbnailpath, $img->__toString());
+        $disk->setVisibility($thumbnailpath, 'public');
+//        $disk->putFileAs($thumbnailpath, $img, $name);
+
+//        $img->save($thumbnailpath, $img->__toString());
     }
 
     public function insertWatermark($pathImage)
